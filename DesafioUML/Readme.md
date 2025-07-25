@@ -1,22 +1,35 @@
+# Diagrama de Classes do Projeto iPhone
+
+Modelo UML que representa a estrutura do projeto.
+
+```mermaid
 classDiagram
-    Iphone <|-- ReprodutorMusical
-    Iphone <|-- AparelhoTelefonico
-    Iphone <|-- NavegadorInternet
-    class ReprodutorMusical{
-      - String musica
-      + selecionarMusica(String musica)
-      + tocar()
-      + pausar()
+    class ReprodutorMusical {
+        <<Interface>>
+        +tocar()
+        +pausar()
+        +selecionarMusica(String musica)
     }
-    class AparelhoTelefonico{
-      - int numero  
-      + ligar(String numero)
-      + atender()
-      + iniciarCorreioVoz()
+
+    class AparelhoTelefonico {
+        <<Interface>>
+        +ligar(String numero)
+        +atender()
+        +iniciarCorreioVoz()
     }
-    class NavegadorInternet{
-      - String url
-      + ExibirPagina(String url)
-      + adicionarNovaAba()
-      + atualizarPagina()
+
+    class NavegadorInternet {
+        <<Interface>>
+        +exibirPagina(String url)
+        +adicionarNovaAba()
+        +atualizarPagina()
     }
+
+    class Iphone {
+        
+    }
+
+    ReprodutorMusical <|.. Iphone
+    AparelhoTelefonico <|.. Iphone
+    NavegadorInternet <|.. Iphone
+```
